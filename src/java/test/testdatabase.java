@@ -5,7 +5,7 @@
  */
 package test;
 
-import fbjdbcconnector.fbjjdbc;
+import fbjdbcconnector.fbjdbcconnector;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -20,7 +20,7 @@ public class testdatabase {
         try{
             String query = "SELECT * FROM User ";
 
-            ResultSet rs = fbjjdbc.excuteQuery(query);
+            ResultSet rs = fbjdbcconnector.excuteQuery(query);
             while (rs.next()) {
                 int fbID = rs.getInt("UserId");
                 System.out.println(fbID);
@@ -31,7 +31,7 @@ public class testdatabase {
         }
         finally{
             try{
-                fbjjdbc.close();
+                fbjdbcconnector.close();
             }
             catch(SQLException e){
                 
